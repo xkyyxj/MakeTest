@@ -1,0 +1,3 @@
+tempdirs := $(patsubst %/,%,$(dirs))
+
+subdirs := $(addprefix $(obj)/,$(tempdirs))

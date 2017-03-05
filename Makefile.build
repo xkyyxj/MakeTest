@@ -1,0 +1,21 @@
+src := $(obj)
+
+target :=
+
+__build :
+
+build := $(srctree)/Makefile.build
+
+include $(src)/Makefile
+
+include $(srctree)/Makefile.lib
+
+__build : $(subdirs) target
+
+$(subdirs) : FORCE
+	echo $(MAKELEVEL)
+	echo in Makefile.build $(srctree)
+	echo in Makefile.build
+	$(Q)$(MAKE) $(build)=$@
+
+FORCE : 
