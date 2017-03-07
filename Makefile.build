@@ -1,7 +1,5 @@
 src := $(obj)
 
-.PHONY: __build $(subdirs) FORCE
-
 __build :
 
 target :=
@@ -19,6 +17,9 @@ $(subdirs) : FORCE
 	echo $(MAKELEVEL)
 	echo in Makefile.build $(srctree)
 	echo in Makefile.build $(src)
+	@echo subdirs -- $(subdirs)
 	$(Q)$(MAKE) $(build)=$@
 
 FORCE :
+
+.PHONY: __build $(subdirs) FORCE

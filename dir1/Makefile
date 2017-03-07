@@ -2,4 +2,4 @@ dirs := dir1/ dir2/
 
 target :
 	echo $(src)
-	rm $(src)/*.o
+	touch $(src)/dir1touch.c

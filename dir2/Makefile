@@ -1,2 +1,2 @@
 target :
-	touch dir2touch.c
+	touch $(src)/dir2touch.c
