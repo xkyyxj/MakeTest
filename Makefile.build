@@ -1,21 +1,24 @@
 src := $(obj)
 
-target :=
+.PHONY: __build $(subdirs) FORCE
 
 __build :
 
-build := $(srctree)/Makefile.build
+target :=
+
+build := -f $(srctree)/Makefile.build obj
 
 include $(src)/Makefile
 
 include $(srctree)/Makefile.lib
 
 __build : $(subdirs) target
+	echo what???
 
 $(subdirs) : FORCE
 	echo $(MAKELEVEL)
 	echo in Makefile.build $(srctree)
-	echo in Makefile.build
+	echo in Makefile.build $(src)
 	$(Q)$(MAKE) $(build)=$@
 
-FORCE : 
+FORCE :
